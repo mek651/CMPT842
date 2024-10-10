@@ -5,8 +5,11 @@ Federated Learning (FL) is a distributed machine learning framework enabling mul
 
 ## Run Project
 To run the project you need to perform the following steps:
+
 1- Clone this repository to your local machine
+
 2- After cloning, go to path "..../complete"
+
 3- Inside the "complete" directory open a terminal and run the following commands in order to build the docker
   * export PROJECT_DIR=quickstart-compose
   * docker compose -f compose.yml up --build -d
