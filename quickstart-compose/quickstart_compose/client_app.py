@@ -1,4 +1,4 @@
-"""quickstart-compose: A Flower / PyTorch app."""
+"""quickstart_compose: A Flower / PyTorch app."""
 
 import torch
 from flwr.client import NumPyClient, ClientApp
@@ -11,6 +11,7 @@ from quickstart_compose.task import (
     set_weights,
     train,
     test,
+    device,
 )
 
 
@@ -21,7 +22,8 @@ class FlowerClient(NumPyClient):
         self.trainloader = trainloader
         self.valloader = valloader
         self.local_epochs = local_epochs
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        # self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.device = device()
         self.net.to(self.device)
 
     def fit(self, parameters, config):
@@ -40,15 +42,17 @@ class FlowerClient(NumPyClient):
         return loss, len(self.valloader.dataset), {"accuracy": accuracy}
 
 
-def client_fn(context: Context):
-    # Load model and data
+
+def client_fn(context: Context) -> FlowerClient:
     net = Net()
     partition_id = context.node_config["partition-id"]
     num_partitions = context.node_config["num-partitions"]
-    trainloader, valloader = load_data(partition_id, num_partitions)
     local_epochs = context.run_config["local-epochs"]
-
-    # Return Client instance
+    
+    trainloaders, valloaders = load_data(num_partitions) 
+    trainloader = trainloaders[int(partition_id)]
+    valloader = valloaders[int(partition_id)]
+    
     return FlowerClient(net, trainloader, valloader, local_epochs).to_client()
 
 

@@ -1,1 +1,1 @@
-"""quickstart-compose: A Flower / PyTorch app."""
+"""quickstart_compose: A Flower / PyTorch app."""
