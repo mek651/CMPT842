@@ -8,11 +8,15 @@ To run the project you need to perform the following steps:
 
 1- Clone this repository to your local machine
 
-2- After cloning, go to path "..../Single_Machine_flwr"
+2- After cloning, go to path "..../Single_Machine_Flwr"
 
-3- Inside the "complete" directory open a terminal and run the following commands in order to build the docker
+3- Inside the "Single_Machine_Flwr" directory open a terminal and run the following commands in order to build the docker
   * export PROJECT_DIR=quickstart-compose
   * docker compose -f compose.yml up --build -d
+
+Use the following command to see all the generated containers
+  * docker ps
+
 
 Now all of the Containers starts in a detached form
 
