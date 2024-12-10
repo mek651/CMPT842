@@ -89,6 +89,12 @@ After exporting the PROJECT_DIR (and before docker compose), run the following c
   * export PROJECT_DIR=../../../../examples/quickstart-sklearn-tabular
   * docker compose -f client/compose.yml up --build -d
 
+Use the following command to see all the generated containers
+  * docker compose -f client/compose.yml ps
+
+Use the following command to see all the logs in live
+  * docker compose -f client/compose.yml logs -f
+
 
 ### Step 5: Run Your Flower Project
 11- Specify the remote SuperLink IP addresses and the path to the root certificate in the [tool.flwr.federations.remote-deployment] table in the pyproject.toml file. 
@@ -110,6 +116,7 @@ So open pyproject.toml file and at the end of the file add the following 3 lines
 13- Shut down the Flower client components:
    
    * docker compose -f client/compose.yml down
+   * docker compose -f client/compose.yml stop
 
 14- Shut down the Flower server components and delete the SuperLink state (on the server machine)
    
