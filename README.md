@@ -93,6 +93,9 @@ To run the project on 2 machines (one as the server and another as the clients) 
 
 ### Step 2: Copy the Server Compose Files
 
+* Open a new terminal for server
+* Using ssh myname@IPAdress link to the Parsa server
+
 7- Copy the server directory, the certificates, and the pyproject.toml file of the Flower project to the remote (server) machine using the following command:
    
    * scp -r ./server \
@@ -104,7 +107,6 @@ To run the project on 2 machines (one as the server and another as the clients) 
    * (scp -r ../../../examples/quickstart-pytorch/pyproject.toml myname@89.117.96.70:~/distributed)
 
 ### Step 3: Start the Flower Server Components (on the server machine)
-Using ssh myname@IPAdress link to the Parsa server
 
 8- On the server machine run the following command to start the SuperLink and ServerApp services:
    
