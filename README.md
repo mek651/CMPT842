@@ -19,26 +19,47 @@ To run the project you need to perform the following steps:
     OR
 
   * (export PROJECT_DIR=quickstart-sklearn-tabular)
+
+### Step 2: Run Flower in Insecure Mode
+start Flower with the most basic configuration. In this setup, Flower will run without TLS and without persisting the state.
+
   * docker compose up --build -d
 
 Use the following command to see all the generated containers
   * docker ps
 
 
+### Step 3: Run the Quickstart Project
 Now all of the Containers starts in a detached form
 
-4-Open another terminal and run the following command to run the simulation:
+To ensure the flwr CLI connects to the SuperLink, you need to specify the SuperLink addresses in the pyproject.toml file.
+
+1- Add the following lines to the quickstart-compose/pyproject.toml:
+
+[tool.flwr.federations.local-deployment]
+address = "127.0.0.1:9093"
+insecure = true
+
+2- Open another terminal and run the following command to run the simulation:
   * flwr run quickstart-compose local-deployment --stream
     
     OR
     
   * (flwr run quickstart-sklearn-tabular local-deployment --stream)
 
+
+### Step 4: Monitor the Process
 5- To monitor the SuperExec logs and see the summary on the server side run the following command:
   * docker compose logs superexec -f
 
 6- To monitor the logs for all clients and server run the following command:
   * docker compose logs -f
+
+
+### Step 5: Clean Up
+* docker compose down -v
+
+
 
 
 
