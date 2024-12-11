@@ -15,17 +15,42 @@ To run the project you need to perform the following steps:
 
 3- Inside the "Single_Machine_Flwr" directory open a terminal and run the following commands in order to build the docker
   * export PROJECT_DIR=quickstart-compose
+  
+    OR
+
+  * (export PROJECT_DIR=quickstart-sklearn-tabular)
+
+### Step 2: Run Flower in Insecure Mode
+start Flower with the most basic configuration. In this setup, Flower will run without TLS and without persisting the state.
+
   * docker compose up --build -d
 
 Use the following command to see all the generated containers
   * docker ps
 
 
+### Step 3: Run the Quickstart Project
 Now all of the Containers starts in a detached form
 
-4-Open another terminal and run the following command to run the simulation:
-  * flwr run quickstart-compose local-deployment --stream
+To ensure the flwr CLI connects to the SuperLink, you need to specify the SuperLink addresses in the pyproject.toml file.
 
+1- Add the following lines to the quickstart-compose/pyproject.toml:
+
+[tool.flwr.federations.local-deployment]
+
+address = "127.0.0.1:9093"
+
+insecure = true
+
+2- Open another terminal and run the following command to run the simulation:
+  * flwr run quickstart-compose local-deployment --stream
+    
+    OR
+    
+  * (flwr run quickstart-sklearn-tabular local-deployment --stream)
+
+
+### Step 4: Monitor the Process
 5- To monitor the SuperExec logs and see the summary on the server side run the following command:
   * docker compose logs superexec -f
 
@@ -33,11 +58,19 @@ Now all of the Containers starts in a detached form
   * docker compose logs -f
 
 
+### Step 5: Clean Up
+* docker compose down -v
+
+
+
+
 
 ## Deploy Flower on Multiple Machine with Docker Compose
 To run the project on 2 machines (one as the server and another as the clients) you need to perform the following steps:
 
 ### Step 1: Set Up
+0 Prerequisite: install flwr version 1.13 
+
 1- On the machine considered as the client, clone this repository to your local machine
 
 2- After cloning, go to path "..../Multi_Machine_flwr"
@@ -68,6 +101,7 @@ To run the project on 2 machines (one as the server and another as the clients) 
 
 
 ### Step 3: Start the Flower Server Components (on the server machine)
+Using ssh myname@IPAdress link to the Parsa server
 
 8- On the server machine run the following command to start the SuperLink and ServerApp services:
    
