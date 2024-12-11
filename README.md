@@ -37,7 +37,9 @@ To ensure the flwr CLI connects to the SuperLink, you need to specify the SuperL
 1- Add the following lines to the quickstart-compose/pyproject.toml:
 
 [tool.flwr.federations.local-deployment]
+
 address = "127.0.0.1:9093"
+
 insecure = true
 
 2- Open another terminal and run the following command to run the simulation:
