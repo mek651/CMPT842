@@ -79,11 +79,11 @@ To run the project on 2 machines (one as the server and another as the clients) 
    
    * cd flower/src/docker/distributed
 
-4- Need to get the IP address from the remote (server) machine and save it for later. For example: 192.168.2.33
+4- Need to get the IP address from the remote (server) machine and save it for later. For example: 89.117.96.70
 
 5- Set the environment variable SUPERLINK_IP with the IP address from the remote machine using the following command:
 
-   * export SUPERLINK_IP=192.168.2.33
+   * export SUPERLINK_IP=89.117.96.70
 
 6- Generate the self-signed certificates:
    
@@ -99,6 +99,9 @@ To run the project on 2 machines (one as the server and another as the clients) 
        ./superlink-certificates \
        ../../../examples/quickstart-sklearn-tabular/pyproject.toml remote:~/distributed
 
+   OR
+   
+   * 
 
 ### Step 3: Start the Flower Server Components (on the server machine)
 Using ssh myname@IPAdress link to the Parsa server
@@ -124,6 +127,12 @@ After exporting the PROJECT_DIR (and before docker compose), run the following c
 10- On the  local machine, run the following command to start the client components:
    
   * export PROJECT_DIR=../../../../examples/quickstart-sklearn-tabular
+
+  OR
+
+  * ()
+
+  
   * docker compose -f client/compose.yml up --build -d
 
 Use the following command to see all the generated containers
@@ -147,6 +156,10 @@ So open pyproject.toml file and at the end of the file add the following 3 lines
 12- Run the project and follow the ServerApp logs using the following command:
    
    * flwr run ../../../examples/quickstart-sklearn-tabular remote-deployment --stream
+
+   OR 
+
+   * ()
 
 
 ### Step 6: Clean Up
