@@ -101,7 +101,7 @@ To run the project on 2 machines (one as the server and another as the clients) 
 
    OR
    
-   * 
+   * (scp -r ../../../examples/quickstart-pytorch/pyproject.toml myname@89.117.96.70:~/distributed)
 
 ### Step 3: Start the Flower Server Components (on the server machine)
 Using ssh myname@IPAdress link to the Parsa server
@@ -130,7 +130,7 @@ After exporting the PROJECT_DIR (and before docker compose), run the following c
 
   OR
 
-  * ()
+  * (export PROJECT_DIR=../../../../examples/quickstart-pytorch)
 
   
   * docker compose -f client/compose.yml up --build -d
@@ -159,7 +159,7 @@ So open pyproject.toml file and at the end of the file add the following 3 lines
 
    OR 
 
-   * ()
+   * (flwr run ../../../examples/quickstart-pytorch remote-deployment --stream)
 
 
 ### Step 6: Clean Up
