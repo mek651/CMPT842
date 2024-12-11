@@ -6,13 +6,16 @@ Federated Learning (FL) is a distributed machine learning framework enabling mul
 ## Deploy Flower on a Single Machine with Docker Compose
 To run the project you need to perform the following steps:
 
+### Step 1: Set Up
+0 Prerequisite: install flwr version 1.13 
+
 1- Clone this repository to your local machine
 
-2- After cloning, go to path "..../Single_Machine_Flwr"
+2- After cloning, go to path "..../Single_Machine_Flwr/complete"
 
 3- Inside the "Single_Machine_Flwr" directory open a terminal and run the following commands in order to build the docker
   * export PROJECT_DIR=quickstart-compose
-  * docker compose -f compose.yml up --build -d
+  * docker compose up --build -d
 
 Use the following command to see all the generated containers
   * docker ps
@@ -21,7 +24,7 @@ Use the following command to see all the generated containers
 Now all of the Containers starts in a detached form
 
 4-Open another terminal and run the following command to run the simulation:
-  * flwr run quickstart-compose docker-compose
+  * flwr run quickstart-compose local-deployment --stream
 
 5- To monitor the SuperExec logs and see the summary on the server side run the following command:
   * docker compose logs superexec -f
