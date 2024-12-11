@@ -15,6 +15,10 @@ To run the project you need to perform the following steps:
 
 3- Inside the "Single_Machine_Flwr" directory open a terminal and run the following commands in order to build the docker
   * export PROJECT_DIR=quickstart-compose
+  
+    OR
+
+  * (export PROJECT_DIR=quickstart-sklearn-tabular)
   * docker compose up --build -d
 
 Use the following command to see all the generated containers
@@ -25,6 +29,10 @@ Now all of the Containers starts in a detached form
 
 4-Open another terminal and run the following command to run the simulation:
   * flwr run quickstart-compose local-deployment --stream
+    
+    OR
+    
+  * (flwr run quickstart-sklearn-tabular local-deployment --stream)
 
 5- To monitor the SuperExec logs and see the summary on the server side run the following command:
   * docker compose logs superexec -f
