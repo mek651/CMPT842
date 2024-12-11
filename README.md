@@ -69,6 +69,8 @@ insecure = true
 To run the project on 2 machines (one as the server and another as the clients) you need to perform the following steps:
 
 ### Step 1: Set Up
+0 Prerequisite: install flwr version 1.13 
+
 1- On the machine considered as the client, clone this repository to your local machine
 
 2- After cloning, go to path "..../Multi_Machine_flwr"
@@ -99,6 +101,7 @@ To run the project on 2 machines (one as the server and another as the clients) 
 
 
 ### Step 3: Start the Flower Server Components (on the server machine)
+Using ssh myname@IPAdress link to the Parsa server
 
 8- On the server machine run the following command to start the SuperLink and ServerApp services:
    
