@@ -1,8 +1,9 @@
-"""quickstart_compose: A Flower / PyTorch app."""
+"""quickstart-compose: A Flower / PyTorch app."""
 
 from flwr.common import Context, ndarrays_to_parameters, NDArrays, Scalar
 from flwr.server import ServerApp, ServerAppComponents, ServerConfig
 from flwr.server.strategy import FedAvg
+# from quickstart_compose.task import Net, get_weights
 
 from typing import Dict, List, Optional, Tuple
 
@@ -17,7 +18,6 @@ from quickstart_compose.task import (
 
 DEVICE = device();
 
-
 # The `evaluate` function will be by Flower called after every round
 def evaluate(
     server_round: int,
@@ -31,8 +31,6 @@ def evaluate(
     loss, accuracy = test(net, testloader, DEVICE)
 
     return loss, {"accuracy": accuracy}
-
-
 
 def server_fn(context: Context):
     # Read from config
@@ -59,3 +57,5 @@ def server_fn(context: Context):
 
 # Create ServerApp
 app = ServerApp(server_fn=server_fn)
+
+

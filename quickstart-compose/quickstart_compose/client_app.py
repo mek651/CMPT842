@@ -1,8 +1,10 @@
-"""quickstart_compose: A Flower / PyTorch app."""
+"""quickstart-compose: A Flower / PyTorch app."""
 
 import torch
-from flwr.client import NumPyClient, ClientApp
+
+from flwr.client import ClientApp, NumPyClient
 from flwr.common import Context
+# from quickstart_compose.task import Net, get_weights, load_data, set_weights, test, train
 
 from quickstart_compose.task import (
     Net,
@@ -13,7 +15,6 @@ from quickstart_compose.task import (
     test,
     device,
 )
-
 
 # Define Flower Client and client_fn
 class FlowerClient(NumPyClient):
@@ -40,7 +41,6 @@ class FlowerClient(NumPyClient):
         set_weights(self.net, parameters)
         loss, accuracy = test(self.net, self.valloader, self.device)
         return loss, len(self.valloader.dataset), {"accuracy": accuracy}
-
 
 
 def client_fn(context: Context) -> FlowerClient:
