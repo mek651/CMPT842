@@ -6,7 +6,7 @@ Federated Learning (FL) is a distributed machine learning framework enabling mul
 ## Deploy Flower on a Single Machine with Docker Compose
 To run the project you need to perform the following steps:
 
-### Step 1: Set Up
+### Step 1: Set Up 
 0 Prerequisite: install flwr version 1.13 
 
 1- Clone this repository to your local machine
